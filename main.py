@@ -1,58 +1,74 @@
 from random import randint
-  
-player = input('pierre (p), feuille (f) ou ciseaux (c)?')
 
-if player == 'p':
-  print('pierre', end=' ')
+UserChoice = input("what you name ?") #we ask for the first name of the user
+print("hey, {}, we do a part ?".format(UserChoice)) #welcome message with user's first name
+
+score_file = open("scores.txt", "a+") #method to store the scores
+
+UserChoice = input('stone (r), paper (p) ou scissors (s)?') #the user is offered three choices represented by the keys of the keyboard
+
+if UserChoice == 'r':
+  print('stone', end=' ') #display of the user's choice
   
-elif player == 'f':
-  print('feuille', end=' ')
+elif UserChoice == 'p':
+  print('paper', end=' ')
   
-elif player == 'c':
-  print('ciseaux', end=' ')
+elif UserChoice == 's':
+  print('scissors', end=' ')
   
-else:
+else: #error message
   print('??')
   
 print('vs', end=' ')
 
-chosen = randint(1,3)
+ComputerChoice = randint(1,3)
 
-if chosen == 1 :
+#display of the choice of the computer
+if ComputerChoice == 1 : 
+  computer = 'r'
+  print('stone')
+  
+elif ComputerChoice == 2 :
   computer = 'p'
-  print('pierre')
-  
-elif chosen == 2 :
-  computer = 'f'
-  print('feuille')
+  print('paper')
   
 else:
-  computer = 'c'
-  print('ciseaux')
+  computer = 's'
+  print('scissors')
 
-if player == computer:
-  print('Égalité recommence!')
+#comparison of the choice of the user and the choice of the computer and recording of the score
+if UserChoice == computer:
+  print('Equality begins again!')
+  print('Equality begins again!', file = score_file)
   
-elif player == 'p' and computer == 'c':
-  print('tu as gagné!')
+elif UserChoice == 'r' and computer == 's':
+  print('you won!')
+  print('you won!', file = score_file)
   
-elif player == 'p' and computer == 'f':
-  print("l'ordinateur a gagné!")
+elif UserChoice == 'r' and computer == 'p':
+  print("the computer won!")
+  print("the computer won!", file = score_file)
   
-elif player == 'f' and computer == 'p':
-  print('tu as gagné!')
+elif UserChoice == 'p' and computer == 'r':
+  print('you won!')
+  print('you won!', file = score_file)
   
-elif player == 'f' and computer == 'c':
-  print("l'ordinateur a gagné!")
+elif UserChoice == 'p' and computer == 's':
+  print("the computer won!")
+  print("the computer won!", file = score_file)
 
-elif player == 'c' and computer == 'f':
-  print('tu as gagné!')
+elif UserChoice == 's' and computer == 'p':
+  print('you won!')
+  print('you won!', file = score_file)
   
-elif player == "c" and computer == 'p':
-  print("l'ordinateur a gagné!")
+elif UserChoice == "s" and computer == 'r':
+  print("the computer won!")
+  print("the computer won!", file = score_file)
 
 else:
-  print('Choisit entre p, f, c et en minuscule')
+  print('choose between r, p, s and lowercase')
+
+score_file.close() #closing the score registration method
   
 
 
