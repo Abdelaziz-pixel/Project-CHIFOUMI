@@ -1,10 +1,11 @@
 import random
 
-Choosen = ["PIERRE", "FEUILLE", "CISEAUX"]
+Choosen = ["PIERRE", "FEUILLE", "CISEAUX"] #"""choice list"""
 
 def UserName():
     """functions ask UserName"""
     user = input("quel est ton nom ? ")
+    print("Bienvenue ! Je te souhaite un bon courage {} ".format(user))
     while ControlName(user) is False:
         print("Votre nom doit contenir au moins 2 caractéres")
         user = input("Quel est ton nom ? ")
@@ -38,7 +39,7 @@ def ComputerChoice():
     return Choosen[random.randint(0, len(Choosen)-1)]
 
 def Compare(User1, Computer1, Scores):
-    """compare choice User1 and Computer1"""
+    """compare choice User1 and Computer1 and add Scores"""
     if User1 != Computer1:
         if User1 == "PIERRE" and Computer1 == "CISEAUX"\
         or User1 == "FEUILLE" and Computer1 == "PIERRE"\
