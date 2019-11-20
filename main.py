@@ -1,5 +1,10 @@
 from functions import *
 
+Scores = {
+  "User1": 0,
+  "Computer1": 0
+}
+
 PlayerName = UserName()
 print(PlayerName)
 

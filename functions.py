@@ -37,4 +37,13 @@ def ComputerChoice():
     """functions choice computer"""
     return Choosen[random.randint(0, len(Choosen)-1)]
 
-
+def Compare(User1, Computer1, Scores):
+    """compare choice User1 and Computer1"""
+    if User1 != Computer1:
+        if User1 == "PIERRE" and Computer1 == "CISEAUX"\
+        or User1 == "FEUILLE" and Computer1 == "PIERRE"\
+        or User1 == "CISEAUX" and Computer1 == "FEUILLE":
+            Scores["User1"] += 1
+        else:
+            Scores["Computer1"] += 1
+    return Scores 
