@@ -1,3 +1,5 @@
+import random
+
 Choosen = ["PIERRE", "FEUILLE", "CISEAUX"]
 
 def UserName():
@@ -30,5 +32,9 @@ def ControlChoice(PlayerChoice):
         assert PlayerChoice in Choosen
     except AssertionError as a:
         return False
+
+def ComputerChoice():
+    """functions choice computer"""
+    return Choosen[random.randint(0, len(Choosen)-1)]
 
 
